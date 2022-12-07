@@ -66,7 +66,7 @@ public class JumiaTest {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
-        // Verify that login to the page was not successful
+        // Case 2:
 
         // Verifying if an error message is displayed
         WebElement emailValidation = driver.findElement(By.xpath("//input[@name='email']"));
@@ -110,7 +110,7 @@ public class JumiaTest {
         //Make the page wait implicitly for the page to fully load
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
-        //Test Case 3 begin
+        //Case 3
         // Verifying if an error message is displayed
         WebElement actualError = driver.findElement(By.xpath("//*[@id=\"passwordForm\"]/div[2]/div[3]/div/div"));
         String actualErrorMessage = actualError.getText();
@@ -152,7 +152,7 @@ public class JumiaTest {
         //Make the page wait implicitly for the page to fully load
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-        //Test Case 3 begin
+        //Case 4
         // Verifying if an error message is displayed
         WebElement actualError = driver.findElement(By.id("empty-email-error-message"));
         String actualErrorMessage = actualError.getText();
@@ -197,7 +197,7 @@ public class JumiaTest {
         //Make the page wait implicitly for the page to fully load
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
-        //Test Case 4 begin
+        //Case 5
         // Verify that login to the page was successful
         WebElement profileName = driver.findElement(By.xpath("//label[@for='dpdw-login']"));
         //Test Case 3 :confirm user profile name is displayed
@@ -227,7 +227,7 @@ public class JumiaTest {
         driver.findElement(By.xpath("//button[@class='btn _prim _md -mls -fsh0']")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        //Test Case 5 begin
+        //Case 6
         // Get the actual search Product using the url endpoint
         String actualSearchProduct = driver.getCurrentUrl();
         // Set the expected search product
@@ -265,7 +265,7 @@ public class JumiaTest {
         String expectedCount = "1";
         String actualCount = count.getText();
 
-        //Test Case 6 begin
+        //Case 7
         if (expectedCount.equals(actualCount)) {
             System.out.println("Assertion 12: The Total Shirt selected = " + actualCount);
         } else {
@@ -310,7 +310,7 @@ public class JumiaTest {
         driver.navigate().refresh();
         listInCart = driver.findElements(By.xpath("//article[@class='card -mtm']//article"));
 
-        //Test Case 8 begin
+        // Case 8
         //Validate that the expected product  in cart is reduced
         int expectedProductInCart = 3;
         int actualProductInCart = listInCart.size();
@@ -320,7 +320,7 @@ public class JumiaTest {
             System.out.println("Assertion 14:The Number of product in the cart did not change");
         }
 
-        //Test Case 9 Begin
+        //Case 9
         //Validate the actual product added was removed
         for (WebElement element : listInCart) {
             String productNameInCart = element.findElement(By.tagName("h3")).getText();
@@ -345,6 +345,7 @@ public class JumiaTest {
         //Make the page wait implicitly for the page to fully load
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
+        //case 10
         // Verify the logout returns to the homepage
         String expectedURL = "https://www.jumia.com.ng/";
         String actualURL = driver.getCurrentUrl();
